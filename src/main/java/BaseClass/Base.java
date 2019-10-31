@@ -23,7 +23,7 @@ public class Base {
 
         try{
             prop = new Properties();
-            FileInputStream ip = new FileInputStream("/Users/sumithaldar/IdeaProjects/OpticalLensBJsAutomation/src/main/java/Properties/config.properties");
+            FileInputStream ip = new FileInputStream("P:\\Users\\shalder1\\IdeaProjects\\OpticalLensBJS\\src\\main\\java\\Properties\\config.properties");
             prop.load(ip);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -35,7 +35,7 @@ public class Base {
     public static void Start()
     {
 
-        System.setProperty("webdriver.chrome.driver","/Users/sumithaldar/IdeaProjects/Full Hybrid Framework/chromedriver");
+        System.setProperty("webdriver.chrome.driver","P:\\Users\\shalder1\\IdeaProjects\\OpticalLensBJS\\chromedriver.exe");
         driver = new ChromeDriver();
         e_driver= new EventFiringWebDriver(driver);
         eventListener= new WebEventListener();

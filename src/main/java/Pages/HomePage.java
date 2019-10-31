@@ -52,16 +52,20 @@ public class HomePage extends Base {
         JavascriptExecutor js = ((JavascriptExecutor) driver);
         js.executeScript("arguments[0].scrollIntoView();", footer);
         Thread.sleep(3000);
-        String[] strings={"Locations","Order Status"};
+        String[] strings={"some","Locations","Order Status"};
 
         for (int i = 1; i < 9; i++) {
-            java.lang.String s = driver.findElement(By.xpath("/html/body/link rel=\"stylesheet\"/app-root/div[3]/foot" +
-                    "er/app-footer/div/div/div[1]/div/div/app-espot-molecule/div/div[2]/div/app-espot-molecule/div/" +
-                    "div[2]/div/div[3]/ul/li[" + i + "]")).getText();
+            //String s = driver.findElement(By.xpath("/html/body/link rel=\"stylesheet\"/app-root/div[3]/footer/app-footer/div/div/div[1]/div/div/app-espot-molecule/div/div[2]/div/app-espot-molecule/div/div[2]/div/div[3]/ul/li["+i+"]/a")).getText();
+            String s=driver.findElement(By.cssSelector("div.footer-wrapper footer.section.globalFooter div.footer-espot.block-section-center div.desktopOnly div.row div.col-12 div.col-12 div.links.row:nth-child(3) div.col-sm-3.p-0:nth-child(3) ul:nth-child(2) li:nth-child("+i+") > a:nth-child(1)\n" +
+                    "\n")).getText();
             System.out.println(s+"\n");
-            for (int j = 0; j < strings.length; j++) {
-                Assert.assertEquals(s,strings[j]);
-            }
+           int j=0;
+           while (j<strings.length)
+           {
+               System.out.println("\nExcpected outcome "+strings[j]);
+               System.out.println("\nActual Outcome "+s);
+               j++;
+           }
 
 
         }
